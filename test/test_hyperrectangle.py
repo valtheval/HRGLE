@@ -42,62 +42,8 @@ def test_filter_dataset(exple_X, exple_y):
     np.testing.assert_equal(y1, expected_y)
 
 
-def test_compute_size(exple_X, exple_y):
-    hr = Hyperrectangle(bounds=[[0,2], [0,2], [2,3]])
-    hr2 = Hyperrectangle(bounds=[[-1,0], [-2,-1], [10,19]])
-    hr3 = Hyperrectangle(bounds=[[-1,10], [-2,11], [0,12]])
-
-    s = hr.compute_size(exple_X, exple_y)
-    s2 = hr2.compute_size(exple_X, exple_y)
-    s3 = hr3.compute_size(exple_X, exple_y)
-    assert s == 1
-    assert s2 == 0
-    assert s3 == 2
-
-
-def test_compute_concentration(exple_X, exple_y):
-    hr = Hyperrectangle(bounds=[[0,2], [0,2], [2,3]])
-    hr2 = Hyperrectangle(bounds=[[-1,0], [-2,-1], [10,19]])
-    hr3 = Hyperrectangle(bounds=[[-1,10], [-2,11], [0,12]])
-
-    c = hr.compute_concentration(exple_X, exple_y)
-    c2 = hr2.compute_concentration(exple_X, exple_y)
-    c3 = hr3.compute_concentration(exple_X, exple_y)
-
-    assert c == 0
-    assert c2 == 0
-    assert c3 == 0.5
-
-
-def test_compute_z_score(exple_X, exple_y):
-    hr = Hyperrectangle(bounds=[[0,2], [0,2], [2,3]])
-    hr2 = Hyperrectangle(bounds=[[-1,0], [-2,-1], [10,19]])
-    hr3 = Hyperrectangle(bounds=[[-1,10], [-2,11], [0,12]])
-
-    z1 = hr.compute_z_score(exple_X, exple_y)
-    z2 = hr2.compute_z_score(exple_X, exple_y)
-    z3 = hr3.compute_z_score(exple_X, exple_y)
-
-    assert z1 == -0.5
-    assert z2 == None
-    assert z3 == 0
-
-
-def test_compute_f_beta_score(exple_X, exple_y):
-    hr = Hyperrectangle(bounds=[[0,2], [0,2], [2,3]])
-    hr2 = Hyperrectangle(bounds=[[-1,0], [-2,-1], [10,19]])
-    hr3 = Hyperrectangle(bounds=[[-1,10], [-2,11], [0,12]])
-
-    f1 = hr.compute_f_beta_score(exple_X, exple_y)
-    f2 = hr2.compute_f_beta_score(exple_X, exple_y)
-    f3 = hr3.compute_f_beta_score(exple_X, exple_y)
-
-    assert f1 == 0
-    assert f2 == 0
-    assert f3 == 0.8
-
-
 def test_compute_metric(exple_X, exple_y):
+    #TODO mettre à jour
     hr = Hyperrectangle(bounds=[[0,2], [0,2], [2,3]])
 
     def user_defined_metric(X, y):
